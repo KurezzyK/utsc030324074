@@ -24,6 +24,7 @@ void input(int data[]){
   for (int i = 0; i < 5; i++) {
       cin >> data[i];
   }
+  cout << "Data/angka telah tersimpan";
   getch();
 }
 
@@ -96,7 +97,7 @@ int main() {
     break;  
 
   case '5':
-    /* code */
+    cout << endl << "Anda keluar dari menu";
     break;
   
   default:
