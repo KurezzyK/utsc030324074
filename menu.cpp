@@ -3,6 +3,7 @@
 using namespace std;
 
 
+
 void dMenu(){
 system("cls");
 cout<<"Aplikasi Exchange Sorting"<<"\n";       
@@ -15,10 +16,48 @@ cout<<"Masukan angka :";
 
 }
 
-void mPertama(string pesan){
-system("cls");
-cout<<"hallo saya menu "<<pesan;
-getch();
+void input(int data[]){
+  system("cls");
+  
+  // Memasukkan data
+  cout << "Masukkan 5 angka: ";
+  for (int i = 0; i < 5; i++) {
+      cin >> data[i];
+  }
+  getch();
+}
+
+void output(int data[]){
+  system("cls");
+
+  // Menampilkan data
+  cout << "\nData yang Anda masukkan adalah:\n";
+  for (int i = 0; i < 5; i++)
+  {
+      cout << "Angka ke-" << (i + 1) << ": " << data[i] << endl;
+  }
+  getch();
+}
+
+void sorting(int data[]) {
+  system("cls");
+  
+  // Exchange Sort
+  for (int i = 0; i < 5 - 1; i++) {
+      for (int j = i + 1; j < 5; j++) {
+          if (data[i] > data[j]) {
+              int temp = data[i];
+              data[i] = data[j];
+              data[j] = temp;
+          }
+      }
+  }
+
+  cout << "Data setelah diurutkan (dari kecil ke besar):\n";
+  for (int i = 0; i < 5; i++) {
+      cout << "Angka ke-" << (i + 1) << ": " << data[i] << endl;
+  }
+  getch();
 }
 
 void sepatahkata(){
@@ -28,8 +67,9 @@ void sepatahkata(){
 }
 
 int main() {
-char pl;
-do
+  int data[5];
+  char pl;
+  do
 {
     dMenu();
     pl=getch();
@@ -37,20 +77,24 @@ do
   {
    case '1':
     /* code */
-    mPertama("pertama");
+    input(data);
     break;
+
    case '2':
-    mPertama("ke- dua");
+    output(data);
     /* code */ 
     break;  
+
    case '3':
-    mPertama("ke- tiga");
+    sorting(data);
     /* code */
     break;  
+
    case '4':
     sepatahkata();
     /* code */
     break;  
+
   case '5':
     /* code */
     break;
